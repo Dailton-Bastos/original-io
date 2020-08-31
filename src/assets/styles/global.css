@@ -1,13 +1,16 @@
 :root {
   --color-background: #ffffff;
   --color-primary: #de8f75;
+  --color-primary-dark: #e35442;
   --color-secondary: #5f75aa;
   --color-complement1: #aeb6c1;
   --color-complement2: #a9095e;
   --color-complement3: #2a5a75;
+  --color-complement4: #a14830;
   --color-black: #000000;
   --color-white: #ffff;
   --color-sucess: #32917b;
+  --color-sucess-dark: #2d8570;
   --color-gray: #f2f2f2;
   --color-gray-dark: #ebebeb;
   --color-gray-light: #e3e3e3;
@@ -47,6 +50,6 @@ textarea {
 
 .container {
   width: 90vw;
-  max-width: 940px;
+  max-width: 1024px;
   margin: 0 auto;
 }
