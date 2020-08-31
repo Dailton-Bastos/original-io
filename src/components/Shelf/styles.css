@@ -1,0 +1,101 @@
+.shelf-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.shelf-wrapper h2 {
+  font-size: 2.6rem;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 1.7rem;
+}
+
+.shelf-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shelf-list .item {
+  width: 290px;
+  cursor: pointer;
+}
+
+.shelf-list .item img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.shelf-list .item + div {
+  margin-left: 1.3rem;
+}
+
+.item footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item footer span {
+  font-size: 1.6rem;
+  opacity: 0.8;
+}
+
+.item footer .colors {
+  display: flex;
+}
+
+.item footer .colors div {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+}
+
+.item footer .colors div.color-1 {
+  background-color: var(--color-complement2);
+}
+
+.item footer .colors div.color-2 {
+  background-color: var(--color-complement3);
+}
+
+.item footer .colors div.color-3 {
+  background-color: var(--color-complement4);
+}
+
+.item footer .colors div.color-4 {
+  background-color: var(--color-black);
+}
+
+.item footer .colors div + div {
+  margin-left: 6px;
+}
+
+.shelf-wrapper .control-slide {
+  margin: 1.9rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-slide span {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid var(--color-complement3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.control-slide p {
+  font-size: 1.4rem;
+  color: var(--color-complement3);
+  margin: 0 1rem;
+}
