@@ -1,0 +1,154 @@
+.page-footer {
+  width: 100%;
+  margin-top: 14.4rem;
+  border-top: 2px solid var(--color-complement1);
+}
+
+.page-footer .footer-content {
+  display: flex;
+  align-items: center;
+  padding: 0 5rem;
+  position: relative;
+}
+
+.footer-content .company,
+.footer-content .info,
+.footer-content .know {
+  margin-right: 82px;
+  margin-top: 6rem;
+}
+
+.page-footer .social-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2.1rem;
+  width: 248px;
+}
+
+.social-links .social {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.social-links .social a + a {
+  margin-left: 3rem;
+}
+
+.social-links .labels {
+  display: flex;
+  align-items: center;
+}
+
+.labels a + a {
+  margin-left: 3.2rem;
+}
+
+.footer-content p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-complement1);
+  text-transform: uppercase;
+}
+
+.footer-content ul {
+  list-style: none;
+  margin-top: 5px;
+}
+
+.footer-content ul li {
+  font-size: 1.4rem;
+  opacity: 0.8;
+  padding: 1rem 0;
+}
+
+.footer-content ul li a {
+  text-decoration: none;
+  color: var(--color-black);
+}
+
+.footer-content .news {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 293px;
+  height: 293px;
+  border: 2px solid var(--color-complement1);
+  background-color: var(--color-background);
+  border-radius: 50%;
+  position: absolute;
+  top: -100px;
+  right: 15px;
+  margin-left: 6.2rem;
+}
+
+.footer-content .news p {
+  font-size: 1.6rem;
+  color: var(--color-black);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.footer-content .news form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 3rem;
+}
+
+.news form label {
+  font-size: 1.2rem;
+  color: var(--color-black);
+  opacity: 0.8;
+}
+
+.news form input {
+  border: none;
+  border-bottom: 2px solid var(--color-complement1);
+  margin-top: 5px;
+  margin-bottom: 1.5rem;
+  padding: 0 5px;
+}
+
+.news form input + input {
+  margin-bottom: 0;
+}
+
+.news form input:focus {
+  outline: none;
+}
+
+.news form input::placeholder {
+  font-size: 1.4rem;
+  color: var(--color-black);
+  opacity: 0.8;
+}
+
+.news form button {
+  border: none;
+  width: 110px;
+  height: 50px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-align: center;
+  cursor: pointer;
+  align-self: center;
+  margin-top: 2.7rem;
+}
+
+.page-footer .footer-bottom {
+  height: 80px;
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  padding: 0 5rem;
+  color: var(--color-white);
+  margin-top: 4.5rem;
+}
+
+.page-footer .footer-bottom p {
+  font-size: 1.2rem;
+  padding-right: 5rem;
+}

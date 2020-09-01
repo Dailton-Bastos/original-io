@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Header from './components/Header';
+import Footer from './components/Footer';
 import BreadCrumb from './components/BreadCrumb';
 import ProductPage from './pages/Product';
 
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <BreadCrumb />
       <ProductPage />
+      <Footer />
     </>
   );
 }
