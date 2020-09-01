@@ -2,6 +2,7 @@ import React from 'react';
 import Gallery from './Gallery';
 import Info from './Info';
 import Lightbox from '../Lightbox';
+import Cart from '../Cart';
 import './styles.css';
 
 function Product() {
@@ -10,6 +11,7 @@ function Product() {
       <Gallery />
       <Info />
       <Lightbox />
+      <Cart />
     </main>
   );
 }
