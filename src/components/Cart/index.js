@@ -7,11 +7,17 @@ import product4 from '../../assets/images/product4.png';
 
 import './styles.css';
 
-function Lightbox() {
+function Cart(props) {
   return (
-    <section className='cart-container'>
+    <section
+      className={props.openCart ? 'cart-container active' : 'cart-container'}
+    >
       <div className='content'>
-        <button type='button' className='close'>
+        <button
+          type='button'
+          className='close'
+          onClick={() => props.setOpenCart(false)}
+        >
           X
         </button>
 
@@ -185,4 +191,4 @@ function Lightbox() {
   );
 }
 
-export default Lightbox;
+export default Cart;
