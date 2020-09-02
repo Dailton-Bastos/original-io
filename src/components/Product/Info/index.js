@@ -112,7 +112,13 @@ function Info(props) {
           </div>
         </div>
 
-        <button type='button' onClick={() => setOpenLightbox(true)}>
+        <button
+          type='button'
+          onClick={() => {
+            setOpenLightbox(true);
+            props.addProductToCart();
+          }}
+        >
           Adicionar à sacola
         </button>
 

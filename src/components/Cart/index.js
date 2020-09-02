@@ -1,9 +1,6 @@
 import React from 'react';
 
-import product1 from '../../assets/images/product1.png';
-import product2 from '../../assets/images/product2.png';
-import product3 from '../../assets/images/product3.png';
-import product4 from '../../assets/images/product4.png';
+import { Link } from 'react-router-dom';
 
 import './styles.css';
 
@@ -22,152 +19,37 @@ function Cart(props) {
         </button>
 
         <p>Sacola</p>
-        <span>5 Itens</span>
+        <span>{props.products.length} Itens</span>
 
         <div className='products'>
-          <div className='item'>
-            <a href='/'>
-              <img src={product1} alt='Product name' />
-              <div className='info'>
-                <p>Rasteira Tira Dedo</p>
-                <span>R$ 49,90</span>
-              </div>
-            </a>
-            <div className='quantity-control'>
-              <button type='button'>-</button>
-              <span>01</span>
-              <button type='button'>+</button>
-            </div>
-            <button type='button'>X</button>
-          </div>
+          {props.products.length ? (
+            props.products.map((item) => {
+              const { product } = item;
 
-          <div className='item'>
-            <a href='/'>
-              <img src={product2} alt='Product name' />
-              <div className='info'>
-                <p>Rasteira Tira Dedo</p>
-                <span>R$ 49,90</span>
-              </div>
-            </a>
-            <div className='quantity-control'>
-              <button type='button'>-</button>
-              <span>01</span>
-              <button type='button'>+</button>
+              return (
+                <div className='item' key={product.id + Math.random()}>
+                  <a href='/'>
+                    <img src={product.images[0].url} alt='Product name' />
+                    <div className='info'>
+                      <p>{product.title}</p>
+                      <span>R$ {product.price}</span>
+                    </div>
+                  </a>
+                  <div className='quantity-control'>
+                    <button type='button'>-</button>
+                    <span>{item.quantity}</span>
+                    <button type='button'>+</button>
+                  </div>
+                  <button type='button'>X</button>
+                </div>
+              );
+            })
+          ) : (
+            <div className='cart-empty'>
+              <p>Seu carrinho está vazio!</p>
+              <Link to='/'>Comprar agora</Link>
             </div>
-            <button type='button'>X</button>
-          </div>
-
-          <div className='item'>
-            <a href='/'>
-              <img src={product3} alt='Product name' />
-              <div className='info'>
-                <p>Rasteira Tira Dedo</p>
-                <span>R$ 49,90</span>
-              </div>
-            </a>
-            <div className='quantity-control'>
-              <button type='button'>-</button>
-              <span>01</span>
-              <button type='button'>+</button>
-            </div>
-            <button type='button'>X</button>
-          </div>
-
-          <div className='item'>
-            <a href='/'>
-              <img src={product4} alt='Product name' />
-              <div className='info'>
-                <p>Rasteira Tira Dedo</p>
-                <span>R$ 49,90</span>
-              </div>
-            </a>
-            <div className='quantity-control'>
-              <button type='button'>-</button>
-              <span>01</span>
-              <button type='button'>+</button>
-            </div>
-            <button type='button'>X</button>
-          </div>
-
-          <div className='item'>
-            <a href='/'>
-              <img src={product1} alt='Product name' />
-              <div className='info'>
-                <p>Rasteira Tira Dedo</p>
-                <span>R$ 49,90</span>
-              </div>
-            </a>
-            <div className='quantity-control'>
-              <button type='button'>-</button>
-              <span>01</span>
-              <button type='button'>+</button>
-            </div>
-            <button type='button'>X</button>
-          </div>
-
-          <div className='item'>
-            <a href='/'>
-              <img src={product4} alt='Product name' />
-              <div className='info'>
-                <p>Rasteira Tira Dedo</p>
-                <span>R$ 49,90</span>
-              </div>
-            </a>
-            <div className='quantity-control'>
-              <button type='button'>-</button>
-              <span>01</span>
-              <button type='button'>+</button>
-            </div>
-            <button type='button'>X</button>
-          </div>
-
-          <div className='item'>
-            <a href='/'>
-              <img src={product1} alt='Product name' />
-              <div className='info'>
-                <p>Rasteira Tira Dedo</p>
-                <span>R$ 49,90</span>
-              </div>
-            </a>
-            <div className='quantity-control'>
-              <button type='button'>-</button>
-              <span>01</span>
-              <button type='button'>+</button>
-            </div>
-            <button type='button'>X</button>
-          </div>
-
-          <div className='item'>
-            <a href='/'>
-              <img src={product4} alt='Product name' />
-              <div className='info'>
-                <p>Rasteira Tira Dedo</p>
-                <span>R$ 49,90</span>
-              </div>
-            </a>
-            <div className='quantity-control'>
-              <button type='button'>-</button>
-              <span>01</span>
-              <button type='button'>+</button>
-            </div>
-            <button type='button'>X</button>
-          </div>
-
-          <div className='item'>
-            <a href='/'>
-              <img src={product1} alt='Product name' />
-              <div className='info'>
-                <p>Rasteira Tira Dedo</p>
-                <span>R$ 49,90</span>
-              </div>
-            </a>
-            <div className='quantity-control'>
-              <button type='button'>-</button>
-              <span>01</span>
-              <button type='button'>+</button>
-            </div>
-            <button type='button'>X</button>
-          </div>
+          )}
         </div>
 
         <footer>

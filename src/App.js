@@ -1,7 +1,10 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
 import Routes from './routes';
+
+import store from './store';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -11,12 +14,14 @@ import './assets/styles/global.css';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Header />
-      <BreadCrumb />
-      <Routes />
-      <Footer />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Header />
+        <BreadCrumb />
+        <Routes />
+        <Footer />
+      </BrowserRouter>
+    </Provider>
   );
 }
 

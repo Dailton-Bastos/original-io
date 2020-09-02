@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import Cart from '../Cart';
 
@@ -11,6 +12,8 @@ import './styles.css';
 
 function Header() {
   const [openCart, setOpenCart] = useState(false);
+
+  const cart = useSelector((state) => state.cart.items);
 
   return (
     <>
@@ -54,12 +57,12 @@ function Header() {
 
             <div className='cart' onClick={() => setOpenCart(true)}>
               <img src={cartIcon} alt='Cart icon' />
-              <span>0</span>
+              <span>{cart.length}</span>
             </div>
           </div>
         </div>
       </header>
-      <Cart openCart={openCart} setOpenCart={setOpenCart} />
+      <Cart openCart={openCart} setOpenCart={setOpenCart} products={cart} />
     </>
   );
 }
