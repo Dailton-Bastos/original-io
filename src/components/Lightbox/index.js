@@ -21,7 +21,7 @@ function Lightbox(props) {
         </button>
 
         <div className='details'>
-          <img src={productImg} alt='Product name' />
+          <img src={props.product?.images?.[0].url} alt='Product name' />
 
           <p>
             Produto adicionado <br /> com sucesso!

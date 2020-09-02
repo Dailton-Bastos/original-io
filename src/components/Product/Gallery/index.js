@@ -71,7 +71,10 @@ function Gallery(props) {
       </section>
 
       <section className='preview'>
-        <img src={previewImage.url} alt={previewImage.name} />
+        <img
+          src={previewImage.url || props.product?.images?.[0].url}
+          alt={previewImage.name}
+        />
       </section>
     </div>
   );
