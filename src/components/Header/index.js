@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import Cart from '../Cart';
 
@@ -15,9 +16,9 @@ function Header() {
     <>
       <header className='page-header'>
         <div className='logo'>
-          <a href='/'>
+          <Link to='/'>
             <img src={logoImg} alt='original.io' />
-          </a>
+          </Link>
         </div>
 
         <div className='header-content'>
