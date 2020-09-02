@@ -1,0 +1,49 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Rasteira tira dedo",
+      "cod": "RT 0568 | 03.07.0653",
+      "oldPrice": 69.99,
+      "price": 55.2,
+      "colors": [
+        {
+          "name": "Fucsia",
+          "hex": "#a9095e"
+        },
+        {
+          "name": "Blue-dark",
+          "hex": "#2a5a75"
+        },
+        {
+          "name": "Brow",
+          "hex": "#a14830"
+        },
+        {
+          "name": "Black",
+          "hex": "#000000"
+        }
+      ],
+      "sizes": ["33", "34", "35", "36", "37", "38", "39", "40", "41", "42"],
+      "images": [
+        {
+          "name": "Product image",
+          "url": "https://i.pinimg.com/564x/8b/01/37/8b01372ac91ea5c42cb8c53aabbe36a4.jpg"
+        },
+        {
+          "name": "Product image",
+          "url": "https://www.todamulher.com.br/wp-content/uploads/2019/01/3-500x500-3.jpg"
+        },
+        {
+          "name": "Product image",
+          "url": "https://img.elo7.com.br/product/zoom/2C6AA79/sandalia-rasteira-feminina-torricella-sandalia.jpg"
+        },
+        {
+          "name": "Product image",
+          "url": "https://imageswscdn.wslojas.com.br/files/8199/sandalia-rasteira-tira-cruzada-branca-com-esferas-onix-858277.jpg"
+        }
+      ],
+      "desc": "Rasteira em atanado soft com tira no dedo e fechamento de fivela. Possui sola sempre na cor do cabedal."
+    }
+  ]
+}
