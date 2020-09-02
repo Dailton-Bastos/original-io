@@ -1,7 +1,5 @@
 import React from 'react';
 
-import productImg from '../../assets/images/product4.png';
-
 import './styles.css';
 
 function Lightbox(props) {
