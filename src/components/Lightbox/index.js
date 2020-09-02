@@ -4,11 +4,19 @@ import productImg from '../../assets/images/product4.png';
 
 import './styles.css';
 
-function Lightbox() {
+function Lightbox(props) {
   return (
-    <section className='lightbox-container'>
+    <section
+      className={
+        props.openLightbox ? 'lightbox-container active' : 'lightbox-container'
+      }
+    >
       <div className='content'>
-        <button type='button' className='close'>
+        <button
+          type='button'
+          className='close'
+          onClick={() => props.setOpenLightbox(false)}
+        >
           X
         </button>
 

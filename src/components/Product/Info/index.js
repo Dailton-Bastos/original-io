@@ -1,69 +1,132 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import Lightbox from '../../Lightbox';
+
 import './styles.css';
 
-function Info() {
+function Info(props) {
+  const [colorName, setColorName] = useState('Nenhum cor selecionada');
+  const [selectColor, setSelectColor] = useState({
+    selectedColor: null,
+  });
+
+  const [size, setSize] = useState('');
+  const [selectSize, setSelectSize] = useState({
+    selectedSize: null,
+  });
+
+  const toggleActive = (index) => {
+    setSelectColor({
+      ...selectColor,
+      selectedColor: props.product.colors[index],
+    });
+  };
+
+  const toggleSizeActive = (index) => {
+    setSelectSize({
+      ...selectSize,
+      selectedSize: props.product.sizes[index],
+    });
+  };
+
+  const toggleSelectColor = (index) => {
+    const status = 'selected';
+    if (props.product.colors[index] === selectColor.selectedColor)
+      return status;
+  };
+
+  const toggleSelectSize = (index) => {
+    const status = 'selected';
+    if (props.product.sizes[index] === selectSize.selectedSize) return status;
+  };
+
+  const selectColorName = (name) => {
+    return setColorName(name);
+  };
+
+  const selectProducSize = (size) => {
+    return setSize(size);
+  };
+
+  const [openLightbox, setOpenLightbox] = useState(false);
+
   return (
-    <div className='product-info'>
-      <header>
-        <h1>Rasteira tira dedo</h1>
-        <span>rt 0568 | 03.07.0653</span>
-      </header>
+    <>
+      <div className='product-info'>
+        <header>
+          <h1>{props.product.title}</h1>
+          <span>{props.product.cod}</span>
+        </header>
 
-      <div className='price-info'>
-        <div className='price'>
-          <span className='old-price'>R$ 69,99 |</span>
-          <span>R$ 55,20</span>
-        </div>
-        <span>Ou 6x de R$ 9,20</span>
-      </div>
-
-      <div className='product-options'>
-        <div className='colors'>
-          <p>
-            Cor: <span>(Fucsia)</span>
-          </p>
-
-          <div className='colors-option'>
-            <div className='color-1 selected' />
-            <div className='color-2' />
-            <div className='color-3' />
-            <div className='color-4' />
-            <div className='color-5' />
+        <div className='price-info'>
+          <div className='price'>
+            <span className='old-price'>R$ {props.product.oldPrice} |</span>
+            <span>R$ {props.product.price}</span>
           </div>
+          <span>Ou 6x de R$ {(props.product.price / 6).toFixed(2)}</span>
         </div>
 
-        <div className='product-size'>
-          <div className='size-info'>
+        <div className='product-options'>
+          <div className='colors'>
             <p>
-              Tamanho: <span>(37)</span>
+              Cor: <span>({colorName})</span>
             </p>
-            <a href='/guide-size'>Guia de medidas</a>
+
+            <div className='colors-option'>
+              {props.product?.colors?.map((color, index) => (
+                <div
+                  key={color.hex}
+                  style={{ backgroundColor: color.hex }}
+                  className={toggleSelectColor(index)}
+                  onClick={() => {
+                    toggleActive(index);
+                    selectColorName(color.name);
+                  }}
+                />
+              ))}
+            </div>
           </div>
 
-          <ul>
-            <li>33</li>
-            <li>34</li>
-            <li>35</li>
-            <li>36</li>
-            <li className='selected'>37</li>
-            <li>38</li>
-            <li>39</li>
-            <li>40</li>
-            <li>41</li>
-            <li>42</li>
-          </ul>
+          <div className='product-size'>
+            <div className='size-info'>
+              <p>
+                Tamanho: <span>({size})</span>
+              </p>
+              <a href='/guide-size'>Guia de medidas</a>
+            </div>
+
+            <ul>
+              {props.product?.sizes?.map((size, index) => (
+                <li
+                  key={size}
+                  className={toggleSelectSize(index)}
+                  onClick={() => {
+                    selectProducSize(size);
+                    toggleSizeActive(index);
+                  }}
+                >
+                  {size}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <button type='button' onClick={() => setOpenLightbox(true)}>
+          Adicionar à sacola
+        </button>
+
+        <div className='product-desc'>
+          <p>{props.product.desc}</p>
         </div>
       </div>
 
-      <button type='button'>Adicionar à sacola</button>
-
-      <div className='product-desc'>
-        <p>
-          Rasteira em atanado soft com tira no dedo e fechamento de fivela.
-          Possui sola sempre na cor do cabedal.
-        </p>
-      </div>
-    </div>
+      <Lightbox
+        openLightbox={openLightbox}
+        setOpenLightbox={setOpenLightbox}
+        product={props.product}
+      />
+    </>
   );
 }
 

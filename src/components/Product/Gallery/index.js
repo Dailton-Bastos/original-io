@@ -1,14 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import productImg from '../../../assets/images/product-photo.png';
-import productPreview from '../../../assets/images/product-photo-preview.png';
 import playerIcon from '../../../assets/icons/player.svg';
 
 import arrowUpIcon from '../../../assets/icons/arrow-up.svg';
 import arrowDownIcon from '../../../assets/icons/arrow-down.svg';
 import './styles.css';
 
-function Gallery() {
+function Gallery(props) {
+  const [selectImage, setSelectImage] = useState({
+    selectedImage: null,
+  });
+
+  const [previewImage, setPreviewImage] = useState({});
+
+  const toggleActive = (index) => {
+    setSelectImage({
+      ...selectImage,
+      selectedImage: props.product.images[index],
+    });
+  };
+
+  const toggleSelectImage = (index) => {
+    const status = 'active';
+    if (props.product.images[index] === selectImage.selectedImage) {
+      return status;
+    }
+  };
+
+  const handleSetImagePreview = (index) => {
+    setPreviewImage(props.product.images[index]);
+  };
+
   return (
     <div className='gallery'>
       <section className='thumbs'>
@@ -28,21 +51,18 @@ function Gallery() {
             <img src={arrowUpIcon} alt='Arrow Up Gallery' />
           </span>
 
-          <li className='active'>
-            <img src={productImg} alt='Product name' />
-          </li>
-
-          <li>
-            <img src={productImg} alt='Product name' />
-          </li>
-
-          <li>
-            <img src={productImg} alt='Product name' />
-          </li>
-
-          <li>
-            <img src={productImg} alt='Product name' />
-          </li>
+          {props.product?.images?.map((image, index) => (
+            <li
+              key={image.url}
+              className={toggleSelectImage(index)}
+              onClick={() => {
+                toggleActive(index);
+                handleSetImagePreview(index);
+              }}
+            >
+              <img src={image.url} alt={image.name} />
+            </li>
+          ))}
 
           <span>
             <img src={arrowDownIcon} alt='Arrow Down Gallery' />
@@ -51,7 +71,7 @@ function Gallery() {
       </section>
 
       <section className='preview'>
-        <img src={productPreview} alt='Product name' />
+        <img src={previewImage.url} alt={previewImage.name} />
       </section>
     </div>
   );
