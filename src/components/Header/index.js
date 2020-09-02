@@ -57,7 +57,7 @@ function Header() {
 
             <div className='cart' onClick={() => setOpenCart(true)}>
               <img src={cartIcon} alt='Cart icon' />
-              <span>{cart.length}</span>
+              <span>{cart.length + 5}</span>
             </div>
           </div>
         </div>
