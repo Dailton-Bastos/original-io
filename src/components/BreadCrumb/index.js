@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import './styles.css';
 
 function BreadCrumb() {
@@ -6,10 +8,10 @@ function BreadCrumb() {
     <div className='timeline container'>
       <ul>
         <li>
-          <a href='/'>Home</a>
+          <Link to='/'>Home</Link>
         </li>
         <li className='selected'>
-          <a href='/category/shoes'>Sapatos</a>
+          <Link to='/category/shoes'>Sapatos</Link>
         </li>
       </ul>
     </div>
