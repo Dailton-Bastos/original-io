@@ -12,12 +12,21 @@ import './styles.css';
 
 function Header() {
   const [openCart, setOpenCart] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false)
+  const [openSearch, setOpenSearch] = useState(false)
+
+  const handleCloseMenu = (evt) => {
+    if(evt.target.tagName === 'A') setOpenMenu(false)
+  }
 
   const cart = useSelector((state) => state.cart.items);
 
   return (
     <>
       <header className='page-header'>
+        <div className="menu" onClick={() => setOpenMenu(!openMenu)}>
+          <div className={`hamburger ${openMenu ? "close-btn" : ""}`}></div>
+        </div>
         <div className='logo'>
           <Link to='/'>
             <img src={logoImg} alt='original.io' />
@@ -26,30 +35,45 @@ function Header() {
 
         <div className='header-content'>
           <div className='auth'>
-            <a href='/signin'>Entrar</a>
-            <a href='/signup'>Cadastrar-se</a>
+            <Link to='/signin'>Entrar</Link>
+            <Link to='/signup'>Cadastrar-se</Link>
           </div>
 
-          <nav className='navigation'>
+          <nav
+            className={`navigation ${openMenu ? "menu-opened" : ""}`}
+            onClick={handleCloseMenu}
+          >
             <ul>
               <li>
-                <a href='/category/shoes'>Sapatos</a>
+                <Link to='/category/shoes'>Sapatos</Link>
               </li>
               <li>
-                <a href='/category/bags'>Bolsas</a>
+                <Link to='/category/bags'>Bolsas</Link>
               </li>
               <li>
-                <a href='/category/accessories'>Acessórios</a>
+                <Link to='/category/accessories'>Acessórios</Link>
               </li>
               <li>
-                <a href='/promo'>Off</a>
+                <Link to='/promo'>Off</Link>
+              </li>
+
+              <li className="auth-mobile">
+                <Link to='/signin'>Entrar</Link>
+                <span>|</span>
+                <Link to='/signup'>Cadastrar-se</Link>
               </li>
             </ul>
           </nav>
 
           <div className='search'>
-            <form action='/search' method='get'>
-              <span>
+            <form action='/search' method='get' className={openSearch ? 'open': ''}>
+              <button
+                type="button"
+                onClick={() => setOpenSearch(!openSearch)}
+              >X
+              </button>
+
+              <span onClick={() => setOpenSearch(!openSearch)}>
                 <img src={searchIcon} alt='Search icon' />
               </span>
               <input type='text' placeholder='Buscar' />
