@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import facebookIcon from '../../assets/icons/facebook.svg';
 import instagramIcon from '../../assets/icons/instagram.svg';
@@ -8,9 +8,20 @@ import vtexLogo from '../../assets/images/vtex.svg';
 import ebitLogo from '../../assets/images/selo-ebit.svg';
 import footerLogo from '../../assets/icons/logo-footer.svg';
 
+import Accordion from '../Accordion'
+
 import './styles.css';
 
 function Footer() {
+  const [institutionalLinks] = useState([
+    'A Marca', 'Lojas', 'Contato'
+  ])
+  const [infoLinks] = useState([
+    'Formas de Pagamento', 'Trocas e Develuções', 'Cuidados Com o Produto'
+  ])
+  const [knowLinks] = useState([
+    'Franquias e Multimarcas', 'Trabalhe com a Gente', 'Procon-RJ'
+  ])
   return (
     <footer className='page-footer'>
       <div className='footer-content'>
@@ -37,50 +48,17 @@ function Footer() {
           </div>
         </div>
 
-        <div className='company'>
-          <p>Institucional</p>
-          <ul>
-            <li>
-              <a href='/'>A marca</a>
-            </li>
-            <li>
-              <a href='/'>Lojas</a>
-            </li>
-            <li>
-              <a href='/'>Contato</a>
-            </li>
-          </ul>
-        </div>
+        < Accordion title="Institucional" >
+          {institutionalLinks}
+        </ Accordion>
 
-        <div className='info'>
-          <p>Informações</p>
-          <ul>
-            <li>
-              <a href='/'>Formas de Pagamento</a>
-            </li>
-            <li>
-              <a href='/'>Trocas e Develuções</a>
-            </li>
-            <li>
-              <a href='/'>Cuidados Com o Produto</a>
-            </li>
-          </ul>
-        </div>
+        < Accordion title="Informações" >
+          {infoLinks}
+        </ Accordion>
 
-        <div className='know'>
-          <p>Conheça</p>
-          <ul>
-            <li>
-              <a href='/'>Franquias e Multimarcas</a>
-            </li>
-            <li>
-              <a href='/'>Trabalhe com a Gente</a>
-            </li>
-            <li>
-              <a href='/'>Procon-RJ</a>
-            </li>
-          </ul>
-        </div>
+        < Accordion title="Conheça" >
+          {knowLinks}
+        </ Accordion>
 
         <div className='news'>
           <p>Assine Nossa News</p>
@@ -96,10 +74,9 @@ function Footer() {
 
       <div className='footer-bottom'>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. At quae sint
-          quod aperiam veritatis nemo iure blanditiis ipsam vel dignissimos
-          cupiditate voluptas obcaecati dicta laudantium ea, iusto perspiciatis.
-          Facilis, possimus?
+          Via Mia | V. Milano Centro Comercio de Bolsas Eireli - EPP.
+          Av.das Américas, 500 - bloco 20, loja 126 - Barra da Tijuca - Rio de Janeiro - RJ - CEP: 22640-100
+          CNPJ: 05.292.288/0002-10 - I.E: 86.732.548 - E-mail: ecommerce@viamia.com.br
         </p>
 
         <img src={footerLogo} alt='Original.io' />
