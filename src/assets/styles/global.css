@@ -31,8 +31,7 @@ html {
 }
 
 html,
-body,
-#root {
+body {
   height: 100vh;
 }
 
@@ -44,7 +43,7 @@ body,
 input,
 button,
 textarea {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.6rem;
 }
 
