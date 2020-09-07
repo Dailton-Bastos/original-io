@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import Lightbox from '../../Lightbox';
 
 import './styles.css';
 
 function Info(props) {
-  const [colorName, setColorName] = useState('Nenhum cor selecionada');
+  const [colorName, setColorName] = useState('');
   const [selectColor, setSelectColor] = useState({
     selectedColor: null,
   });
@@ -69,7 +70,7 @@ function Info(props) {
         <div className='product-options'>
           <div className='colors'>
             <p>
-              Cor: <span>({colorName})</span>
+              Cor: <span>({colorName || 'Nenhuma cor selecionada'})</span>
             </p>
 
             <div className='colors-option'>
@@ -92,7 +93,7 @@ function Info(props) {
               <p>
                 Tamanho: <span>({size})</span>
               </p>
-              <a href='/guide-size'>Guia de medidas</a>
+              <Link to='/guide-size'>Guia de medidas</Link>
             </div>
 
             <ul>
@@ -123,6 +124,7 @@ function Info(props) {
         </button>
 
         <div className='product-desc'>
+          <h3>Descrição</h3>
           <p>{props.product.desc}</p>
         </div>
       </div>

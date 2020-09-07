@@ -75,6 +75,18 @@ function Gallery(props) {
           src={previewImage.url || props.product?.images?.[0].url}
           alt={previewImage.name}
         />
+        <div className="gallery-controll">
+          <div className="video-play">
+            <span><img src={playerIcon} alt="" /></span>
+          </div>
+
+          <div className="slide-controll">
+            <div className="selected"></div>
+            <div />
+            <div />
+            <div />
+          </div>
+        </div>
       </section>
     </div>
   );
